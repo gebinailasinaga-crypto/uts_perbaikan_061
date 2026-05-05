@@ -7,18 +7,33 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Jalankan migrasi untuk membuat tabel pasiens.
      */
     public function up(): void
     {
         Schema::create('pasiens', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            // id: Primary Key & Auto-increment (Bawaan Laravel)
+            $table->id(); 
+            
+            // no_rekam_medis: String (Contoh: RM-001)
+            $table->string('no_rekam_medis'); 
+            
+            // nama_pasien: String (Wajib diisi)
+            $table->string('nama_pasien'); 
+            
+            // jenis_kelamin: String (Contoh: Laki-laki, Perempuan)
+            $table->string('jenis_kelamin'); 
+            
+            // umur: Integer (Berupa angka)
+            $table->integer('umur'); 
+            
+            // created_at & updated_at: Timestamps (Bawaan otomatis Laravel)
+            $table->timestamps(); 
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Batalkan migrasi (Hapus tabel).
      */
     public function down(): void
     {
