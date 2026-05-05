@@ -1,5 +1,12 @@
-use App\Http\Controllers\PasienController;
-use Illuminate\Support\Facades\Route;
+ <?php
 
-// Baris ini yang paling penting untuk menghilangkan error tadi
-Route::resource('pasien', PasienController::class);
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasienController;
+
+// Halaman Utama
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Rute Pasien
+Route::resource('pasien', PasienController::class);   
